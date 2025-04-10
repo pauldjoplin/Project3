@@ -28,10 +28,12 @@ void GatherFileData::read() { // Handles reading input, building the frequency m
 	//Line 29 and 33 check to see if the file failed to open.
 	if (!inputStream.is_open()) { 
 		cerr << "Failed to open file: " << fileName << endl; 
+		return;
 	}
 
 	if (!outputStream.is_open()) {
 		cerr << "Failed to open file: " << fileName2 << endl;
+		return;
 	}
 
 	while (getline(inputStream, line)) { // Parses each line of the file until it reaches the end. Stores the word in "produce" and updates the frequency. 

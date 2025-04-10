@@ -13,12 +13,15 @@
 #include <fstream>
 
 #include "GatherFileData.h"
+#include "IOControls.h"
 
 using namespace std;
 
 int main() {
-	
+	IOControls controls;
+
 	GatherFileData reader("ProduceList.txt", "frequency.dat");
+	controls.displayMenu(reader.GetFrequency());
 
 	return 0;
 }

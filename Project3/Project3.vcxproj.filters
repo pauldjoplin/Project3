@@ -21,9 +21,15 @@
     <ClCompile Include="GatherFileData.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="IOControls.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GatherFileData.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="IOControls.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
