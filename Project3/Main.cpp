@@ -20,7 +20,5 @@ int main() {
 	
 	GatherFileData reader("ProduceList.txt", "frequency.dat");
 
-	cout << reader.read();
-
 	return 0;
 }
