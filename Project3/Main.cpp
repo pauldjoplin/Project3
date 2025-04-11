@@ -18,9 +18,12 @@
 using namespace std;
 
 int main() {
-	IOControls controls;
+	
 
 	GatherFileData reader("ProduceList.txt", "frequency.dat");
+	
+	IOControls controls;
+
 	controls.displayMenu(reader.GetFrequency());
 
 	return 0;

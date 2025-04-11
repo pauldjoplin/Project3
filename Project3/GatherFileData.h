@@ -1,6 +1,6 @@
 #ifndef GATHERFILEDATA_H //Define guards per best practices.
 #define GATHERFILEDATA_H
-
+#pragma once
 
 #include <string>
 #include <vector>
