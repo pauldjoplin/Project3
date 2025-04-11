@@ -44,7 +44,6 @@ string IOControls::GetValidatedInputString(const string& prompt, const map<strin
 			cerr << "Error: " << e.what() << endl;
 			valid = false; // Loop continues if an error was thrown
 		}
-
 	} while (!valid);
 
 	// Should never be reached, but included for completeness
@@ -63,7 +62,7 @@ string IOControls::GetValidatedInputString(const string& prompt, const map<strin
 */
 void IOControls::displayMenu(const map<string, int>& mapData) {
 
-	cout << "File uploaded...backup file created...choose a menu option to continue.\n\n";
+	cout << "To continue, choose from the menu options below (1-4): \n\n";
 	mainMenu();
 
 	do {
@@ -84,7 +83,6 @@ void IOControls::displayMenu(const map<string, int>& mapData) {
 		}
 
 			  // Future cases (2 and 3) can be added here
-
 		}
 	} while (menuChoice != 4);
 }
