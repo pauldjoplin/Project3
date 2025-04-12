@@ -63,8 +63,8 @@ string IOControls::GetValidatedInputString(const string& prompt, const map<strin
 * Handles the core menu loop and user interaction.
 * Based on user selection, the program:
 *  - Searches for a specific item's frequency (option 1)
-*  - (Future) Displays full list of produce frequencies (option 2)
-*  - (Future) Displays histogram of frequencies (option 3)
+*  - Displays full list of produce frequencies (option 2)
+*  - Displays histogram of frequencies (option 3)
 *  - Exits the program (option 4)
 *
 * The loop runs until the user selects option 4.
@@ -72,13 +72,13 @@ string IOControls::GetValidatedInputString(const string& prompt, const map<strin
 void IOControls::displayMenu(const map<string, int>& mapData) {
 	cout << "To continue, choose from the menu options below (1-4): \n";
 
-	do {
+	do { 
 		mainMenu();
 		menuChoice = GetValidatedInputInt<int>("\nEnter the menu option (1-4): ");
 		cout << endl;
 
 		switch (menuChoice) {
-		case 1: {
+		case 1: { // If the usere chooses 1, they will be prompted to enter a produce item. Their entry is checked with a validator and returns the frequency of that item if it exists. 
 			produceChoice = GetValidatedInputString("Enter a produce item to find the frequency of sale: ", mapData);
 
 			auto it = mapData.find(produceChoice);
@@ -90,28 +90,28 @@ void IOControls::displayMenu(const map<string, int>& mapData) {
 			}
 			break;
 		}
-		case 2: {
+		case 2: { // If the user chooses option 2, the list of produce and their frequency is displayed.
 			for (const auto& pair : mapData) {
 				cout << pair.first << " " << pair.second << endl;
 			}
 			break;
 
-		case 3: {
-			cout << "\033[32m";
+		case 3: { // If the user chooses option 3, the list of produce and their frequency is displayed. This time as a style histogram. 
+			cout << "\033[32m";  // Sets the color to green.
 			cout << "\nItem Name         | Frequency\n";
 			cout << "------------------+---------------------------\n";
 
-			for (const auto& pair : mapData) {
+			for (const auto& pair : mapData) { // Handles minor styling and changing the output of the number to '*' of the same amount, so (4) = (****).
 				cout << left << setw(18) << pair.first << "| ";
 				for (int i = 0; i < pair.second; ++i) {
 					cout << '*';
 				}
 				cout << endl;
 			}
-			cout << "\033[37m";
+			cout << "\033[37m"; //Changes the text back to white after the histogram. 
 			break;
 		}
-		case 4: {
+		case 4: { // If the user chooses option 4, a exit messaage is displayed for 4 seconds and then the program terminates. 
 			cout << "Closing in 4 seconds... You may view your backup in frequency.dat! ";
 			this_thread::sleep_for(chrono::seconds(4));  // Waits 4 seconds
 			exit(1);
