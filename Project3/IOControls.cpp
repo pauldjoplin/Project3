@@ -1,6 +1,10 @@
 #include "IOControls.h"
 
 #include <iostream>
+#include <iomanip>
+#include <cstdlib>	// For exit
+#include <thread>   // For sleep_for
+#include <chrono>   // For chrono::seconds
 
 /*
 * Displays the static menu options available to the user.
@@ -65,7 +69,8 @@ void IOControls::displayMenu(const map<string, int>& mapData) {
 	mainMenu();
 
 	do {
-		menuChoice = GetValidatedInputInt<int>("Enter the menu option (1-4): ");
+		menuChoice = GetValidatedInputInt<int>("\nEnter the menu option (1-4): ");
+		cout << endl;
 
 		switch (menuChoice) {
 		case 1: {
@@ -85,6 +90,27 @@ void IOControls::displayMenu(const map<string, int>& mapData) {
 				cout << pair.first << " " << pair.second << endl;
 			}
 			break;
+
+		case 3: {
+			cout << "\033[32m";
+			cout << "\nItem Name         | Frequency\n";
+			cout << "------------------+---------------------------\n";
+
+			for (const auto& pair : mapData) {
+				cout << left << setw(18) << pair.first << "| ";
+				for (int i = 0; i < pair.second; ++i) {
+					cout << '*';
+				}
+				cout << endl;
+			}
+			cout << "\033[37m";
+			break;
+		}
+		case 4: {
+			cout << "Closing in 4 seconds... You may view your backup in frequency.dat! ";
+			this_thread::sleep_for(chrono::seconds(4));  // Waits 4 seconds
+			exit(1);
+		}
 		}
 		}
 	} while (menuChoice != 4);
