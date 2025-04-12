@@ -11,7 +11,7 @@
 * This function is called at the start of the displayMenu loop.
 */
 void mainMenu() {
-	cout << "1: Check the frequency of a product via word search.\n"
+	cout<<"\n1: Check the frequency of a product via word search.\n"
 		<< "2: Print a list of items and their purchase frequency.\n"
 		<< "3: Print a histogram of items and their purchase frequency.\n"
 		<< "4: Exit the program.\n\n";
@@ -36,6 +36,11 @@ string IOControls::GetValidatedInputString(const string& prompt, const map<strin
 
 			if (input.empty()) {
 				throw runtime_error("Input cannot be blank. Please enter a value.");
+			}
+
+			input[0] = toupper(input[0]); //Sets the first letter to uppercase and the rest to lowercase for QOL.
+			for (size_t i = 1; i < input.length(); ++i) {
+				input[i] = tolower(input[i]);
 			}
 
 			if (mapData.find(input) == mapData.end()) {
@@ -65,10 +70,10 @@ string IOControls::GetValidatedInputString(const string& prompt, const map<strin
 * The loop runs until the user selects option 4.
 */
 void IOControls::displayMenu(const map<string, int>& mapData) {
-	cout << "To continue, choose from the menu options below (1-4): \n\n";
-	mainMenu();
+	cout << "To continue, choose from the menu options below (1-4): \n";
 
 	do {
+		mainMenu();
 		menuChoice = GetValidatedInputInt<int>("\nEnter the menu option (1-4): ");
 		cout << endl;
 
