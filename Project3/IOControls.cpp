@@ -82,9 +82,7 @@ void IOControls::displayMenu(const map<string, int>& mapData) {
 		}
 		case 2: {
 			for (const auto& pair : mapData) {
-				if (pair.second >= 1) {
-					cout << pair.first << " " << pair.second << endl;
-				}
+				cout << pair.first << " " << pair.second << endl;
 			}
 			break;
 		}
