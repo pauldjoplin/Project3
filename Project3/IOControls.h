@@ -17,7 +17,6 @@ using namespace std;
 * interact with that data by selecting menu options or searching for item frequency.
 */
 
-
 class IOControls {
 public:
 
@@ -68,7 +67,6 @@ T IOControls::GetValidatedInputInt(const string& prompt) {
 			if (ss.fail() || value <= 0 || value > 4 || !ss.eof()) {
 				throw runtime_error("Invalid input, please enter (1-4).");
 			}
-
 		}
 		catch (const runtime_error& e) {
 			cerr << "Error: " << e.what() << endl;

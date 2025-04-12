@@ -61,7 +61,6 @@ string IOControls::GetValidatedInputString(const string& prompt, const map<strin
 * The loop runs until the user selects option 4.
 */
 void IOControls::displayMenu(const map<string, int>& mapData) {
-
 	cout << "To continue, choose from the menu options below (1-4): \n\n";
 	mainMenu();
 
@@ -81,8 +80,14 @@ void IOControls::displayMenu(const map<string, int>& mapData) {
 			}
 			break;
 		}
-
-			  // Future cases (2 and 3) can be added here
+		case 2: {
+			for (const auto& pair : mapData) {
+				if (pair.second >= 1) {
+					cout << pair.first << " " << pair.second << endl;
+				}
+			}
+			break;
+		}
 		}
 	} while (menuChoice != 4);
 }

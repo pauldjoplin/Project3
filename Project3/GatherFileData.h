@@ -9,8 +9,8 @@
 using namespace std;
 
 /*
-* The header file for a class that gathers data from a produce list, creates a map and writes it to a new file. 
-* See documentation on the corresponding .cpp file for more. 
+* The header file for a class that gathers data from a produce list, creates a map and writes it to a new file.
+* See documentation on the corresponding .cpp file for more.
 */
 class GatherFileData {
 public:
